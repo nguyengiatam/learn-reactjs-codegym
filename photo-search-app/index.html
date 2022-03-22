@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+        #title-app {
+            text-align: center;
+            font-size: 2vw;
+            margin-top: 2vw;
+            margin-bottom: 2vw;
+        }
+
+        #navigation{
+            display: flex;
+            justify-content: center;
+        }
+
+        .navigation{
+            display: block;
+        }
+
+        #navigation input{
+            width: 10vw;
+            height: 2vw;
+            margin-right: 0.2vw;
+            padding-left: 0.5vw;
+            border-radius: 5px;
+        }
+
+        #navigation button{
+            width: 6vw;
+            margin-right: 0.2vw;
+            padding-left: 0.5vw;
+            border-radius: 5px;
+            color: white;
+        }
+
+        #search{
+            background-color: rgb(46, 46, 46);
+        }
+
+        #remove{
+            background-color: red;
+        }
+
+        #result{
+            border: 1px white solid;
+            width: 90vw;
+            margin: 2vw 5vw 0vw 5vw;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="title-app">GIPHY PARTY</div>
+    <div id="navigation">
+        <input type="text" name="" id="input-value" placeholder="Enter a search term" class="navigation">
+        <button class="navigation" id="search">Search Giphy!</button>
+        <button class="navigation" id="remove">Remove Image</button>
+    </div>
+    <div id="result"></div>
+    <script>
+        document.querySelector('#search').addEventListener('click', searchImage)
+
+        function searchImage(event) {
+            
+        }
+    </script>
+</body>
+</html>
