@@ -1,0 +1,23 @@
+{
+  "name": "learn-reactjs-codegym",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nguyengiatam/learn-reactjs-codegym.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nguyengiatam/learn-reactjs-codegym/issues"
+  },
+  "homepage": "https://github.com/nguyengiatam/learn-reactjs-codegym#readme",
+  "devDependencies": {
+    "prompt-sync": "^4.1.6"
+  }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <style>
+        .seach {
+            text-align: center;
+        }
+
+        .title{
+            width: 50px;
+        }
+
+        #input{
+            text-align: center;
+            border-radius: 10px;
+            border: solid, 1px, black;
+        }
+
+        #send{
+            border-radius: 10px;
+        }
+
+        #result{
+            width: 15vw;
+            margin-left: 42.5vw;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="seach">
+        <input type="text" id="input">
+        <button id="send">Get Weather</button>
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+        let outElement = document.querySelector('#result');
+        document.querySelector('#send').addEventListener('click', async () => {
+            const valInput = document.querySelector('#input').value
+            if (!valInput) {
+                return
+            }
+            outElement.innerHTML = '<h4>Loading...</h4>';
+            const cityName = valInput.split(' ').join('')
+            let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=2ffe3704bff5aee3784e5889ef4f4be1`);
+            let data = {'Message' : 'value does not exist'};
+            if(response.status == 200){
+                data = await response.json();
+            }
+            setOutData(data);
+        })
+
+        function setOutData(data) {
+            let dataHeader = document.createElement('h3');
+            dataHeader.innerHTML = 'Weather Infomation:';
+            outElement.innerHTML = '';
+            outElement.appendChild(dataHeader);
+            outElement.appendChild(outData(data));
+        }
+
+        function outData(data) {
+            let dataList = document.createElement('ul');
+            for (const key in data) {
+                if (typeof data[key] == 'object') {
+                    let li = document.createElement('li');
+                    li.innerHTML = key;
+                    dataList.appendChild(li);
+                    dataList.appendChild(outData(data[key]));
+                } else {
+                    let li = document.createElement('li');
+                    li.innerHTML = `${key}: ${data[key]}`;
+                    dataList.appendChild(li);
+                }
+            }
+            return dataList;
+        }
+    </script>
+</body>
+
+</html>
