@@ -21,6 +21,7 @@
         }
 
         #navigation{
+            
             display: flex;
             justify-content: center;
         }
@@ -56,10 +57,12 @@
         }
 
         #search{
+            font-size: 0.7vw;
             background-color: rgb(46, 46, 46);
         }
 
         #remove{
+            font-size: 0.7vw;
             background-color: red;
         }
 
@@ -89,6 +92,7 @@
 
         document.querySelector('#remove').addEventListener('click', () => {
             document.querySelector('#result').innerHTML = ''
+            document.querySelector('#input-value').value = '';
         })
 
         async function searchImage(event) {
@@ -104,6 +108,7 @@
             const img = document.createElement('img')
             img.src = imageLink
             document.querySelector('#result').appendChild(img)
+            document.querySelector('#input-value').value = '';
         }
     </script>
 </body>
