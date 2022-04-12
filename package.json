@@ -19,5 +19,8 @@
   "homepage": "https://github.com/nguyengiatam/learn-reactjs-codegym#readme",
   "devDependencies": {
     "prompt-sync": "^4.1.6"
+  },
+  "dependencies": {
+    "redis": "^4.0.6"
   }
 }

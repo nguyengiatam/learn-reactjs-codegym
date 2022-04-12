@@ -1,0 +1,34 @@
+.parent{
+  text-align: center;
+  width: 30rem;
+  margin: 5rem 40rem 0rem 40rem;
+}
+.fw-bold{
+  text-align: center;
+}
+.mb-3{
+  text-align: left;
+  width: 30rem;
+}
+
+#forgot-password:hover{
+  color: rgb(12, 128, 236);
+  cursor: pointer;
+}
+
+.note{
+  width: 15rem;
+}
+
+.note-login{
+  display: flex;
+  flex-direction: row;
+}
+
+.forgot-password{
+  text-align: right;
+}
+
+.form-check-input{
+  margin-right: 0.5rem;
+}
