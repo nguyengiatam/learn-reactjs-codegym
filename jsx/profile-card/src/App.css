@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+}
+.profile-card{
+    width: 20vw;
+    height: 25vw;
+    box-shadow: 0 0 10px black;
+    margin: 10vw 40vw 0vw 40vw;
+    border-radius: 10px;
+}
+
+.cover-image{
+    border-radius: 10px 10px 0px 0px;
+    width: 20vw;
+    height: 10vw;
+}
+
+.avatar{
+    position: relative;
+    top: -2.5vw;
+    left: 0;
+    width: 5vw;
+    height: 5vw;
+    border-radius: 50%;
+}
+
+.full-name{
+    margin: -2.5vw 0vw 0vw 0vw;
+    font-size: 1.5vw;
+}
+
+.introduce{
+    font-size: 0.8vw;
+    margin: 0.5vw 0vw 1vw 0vw;
+}
+
+.btn-follow{
+    width: 4vw;
+    height: 2vw;
+    border-radius: 5px;
+    border: none;
+    background-color: #3498DB;
+    color: white;
+}
+
+.btn-follow:hover{
+    background-color: #198cd8;
+}
+
+.btn-follow:active{
+    background-color: #0374c0;
+}
+
