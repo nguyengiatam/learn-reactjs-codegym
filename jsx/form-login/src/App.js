@@ -25,7 +25,6 @@ function App() {
       <div className="d-grid gap-2 col-6 mx-auto">
         <button type="submit" className="btn btn-primary">Đăng nhập</button>
       </div>
-
     </div>
   );
 }
