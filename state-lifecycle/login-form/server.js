@@ -10,6 +10,7 @@ app.get('/', (req, res, next) => {
 })
 
 app.post('/login', (req, res) => {
+    console.log(req.body);
     let info = {
         name: 'Max Sida',
         age: 27,
@@ -17,7 +18,7 @@ app.post('/login', (req, res) => {
         job: "Nghiện",
         email: 'MaxSida@gmail.com'
     }
-    res.status(200).send(info)
+    res.status(200).json(info)
 })
 
 app.listen(PORT, () => {

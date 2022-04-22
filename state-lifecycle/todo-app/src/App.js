@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import { Work } from './components/work';
+import { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      workList: [],
+      workName: '',
+      workTimeStart: '',
+      workTimeEnd: '',
+      status: null
+    }
+  }
+  render() {
+    return (
+      <div className="App">
+        <form className="input-value">
+          <input type="text" className="input-group" placeholder="Nhập tên công việc" onChange={() => {this.setState({workList: this.state.workList})}}/>
+        </form>
+        <div className="list-group">
+
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
