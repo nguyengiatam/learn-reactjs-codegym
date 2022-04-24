@@ -4,16 +4,18 @@ export class Work extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: props.name,
-            timeStart: props.timeStart,
-            timeEnd: props.timeEnd,
+            id: props.value.id,
+            name: props.value.name,
+            timeStart: props.value.timeStart,
+            timeEnd: props.value.timeEnd,
+            status: 0,
             button: "Bắt đầu"
         }
     }
 
     render() {
         return (
-            <div className="card">
+            <div className="card" key={this.state.id}>
                 <p> Tên công việc: {this.state.name} </p>
                 <p> Thời gian bắt đầu: {this.state.timeStart} </p>
                 <p> Thời gian kết thúc: {this.state.timeEnd} </p>
