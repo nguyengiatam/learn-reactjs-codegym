@@ -7,7 +7,7 @@ export class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      workList: [{id: 0, name: '', timeStart: '', timeEnd: ''}],
+      workList: [],
       workName: "",
       workTimeStart: "",
       workTimeEnd: "",
@@ -16,6 +16,7 @@ export class App extends Component {
     this.inputTimeStart = this.inputTimeStart.bind(this);
     this.inputTimeEnd = this.inputTimeEnd.bind(this);
     this.addWork = this.addWork.bind(this);
+    this.removeWork = this.removeWork.bind(this);
   }
   
 
@@ -36,20 +37,35 @@ export class App extends Component {
     this.setState({ workTimeEnd: event.target.value });
   }
 
+  removeWork(id){
+    let newWorkList = this.state.workList.filter(work => work.id !== id);
+    this.setState({ workList: newWorkList });
+  }
+
+  updateWork(obj){
+    const newWorkList = this.state.workList.map(val => {
+      if(val.id === obj.id){
+        
+      }
+    })
+
+  }
+
   addWork() {
-    App.id++;
     const newWork = {
       id: App.id,
       name: this.state.workName,
       timeStart: this.state.workTimeStart,
       timeEnd: this.state.workTimeEnd,
       status: 0,
+      removeWork: this.removeWork
     };
     this.setState({
       workList: [...this.state.workList, newWork],
       workTimeStart: "",
       workTimeEnd: "",
     });
+    App.id++;
   }
 
   // static getDerivedStateFromProps(nextProps, preState) {
@@ -64,7 +80,7 @@ export class App extends Component {
     const {workList} = this.state
     return (
       <div className="App">
-        <form
+        <div
           className="input-value d-flex flex-column container "
           style={{ width: "40rem" }}
         >
@@ -85,40 +101,9 @@ export class App extends Component {
           </div>
           <div
             className="d-flex justify-content-center"
-            style={{ margin: "5px" }}
-          >
-            <label htmlFor="input-time-start" className="w-25">
-              Dự kiến bắt đầu
-            </label>
-            <input
-              type="time"
-              id="input-time-start"
-              className="input-group d-block w-50"
-              placeholder="Nhập thời gian bắt đầu dự kiến"
-              onChange={this.inputTimeStart}
-            />
-          </div>
-          <div
-            className="d-flex justify-content-center"
-            style={{ margin: "5px" }}
-          >
-            <label htmlFor="input-time-end" className="w-25">
-              Dự kiến kết thúc
-            </label>
-            <input
-              type="time"
-              id="input-time-end"
-              className="input-group d-block w-50"
-              placeholder="Nhập thời gian kết thúc dự kiến"
-              onChange={this.inputTimeEnd}
-            />
-          </div>
-          <div
-            className="d-flex justify-content-center"
             style={{ margin: "10px" }}
           >
             <button
-              type="submit"
               className="btn btn-primary"
               style={{ width: "10rem" }}
               onClick={this.addWork}
@@ -126,12 +111,11 @@ export class App extends Component {
               Thêm công việc
             </button>
           </div>
-        </form>
-        <div>
-          <Work value={this.state.workList[App.id]} />
-          {/* {workList.map((work) => (
+        </div>
+        <div className='work-list'>
+          {workList.map((work) => (
             <Work value={work} />
-          ))} */}
+          ))}
         </div>
       </div>
     );
