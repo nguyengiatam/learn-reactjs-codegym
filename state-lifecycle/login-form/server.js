@@ -16,7 +16,8 @@ app.post('/login', (req, res) => {
         age: 27,
         address: 'Hà Nội',
         job: "Nghiện",
-        email: 'MaxSida@gmail.com'
+        email: 'MaxSida@gmail.com',
+        url: 'http://ngt-web.herokuapp.com/'
     }
     res.status(200).json(info)
 })

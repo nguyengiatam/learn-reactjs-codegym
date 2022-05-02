@@ -59,18 +59,24 @@ export class Work extends Component {
                 break
         }
         this.setState({
-            ...this.state,
-            ...newValue
+            timeStart: newValue.timeStart || this.state.timeStart,
+            timeEnd: newValue.timeEnd || this.state.timeEnd,
+            status: newValue.status,
+            textStatus: newValue.textStatus,
+            colorStatus: newValue.colorStatus,
+            texButton: newValue.texButton,
+            colorButton: newValue.colorButton
         })
+        this.state.updateWork({...this.state, ...newValue})
     }
 
     render() {
         return (
             <div className="card work shadow" key={this.state.id} style={{ margin: "10px", padding: "10px", width: "28rem" }}>
-                <p> <span className="fw-bold">Tên công việc: </span><span>{this.state.name}</span></p>
-                <p> <span className="fw-bold">Thời gian bắt đầu: </span> <span>{this.state.timeStart}</span> </p>
-                <p> <span className="fw-bold">Thời gian kết thúc: </span> <span>{this.state.timeEnd}</span></p>
-                <p> <span className="fw-bold">Trạng thái: </span><span style={{ color: this.state.colorStatus }}>{this.state.textStatus}</span></p>
+                <p> <span className="fw-bold fs-5">Tên công việc: </span><span className="fs-5" style={{color: "gold" }}>{this.state.name}</span></p>
+                <p> <span className="fw-bold fs-5">Thời gian bắt đầu: </span> <span className="fs-5" style={{color: "#18b1df" }}>{this.state.timeStart}</span> </p>
+                <p> <span className="fw-bold fs-5">Thời gian kết thúc: </span> <span className="fs-5" style={{color: "#4ae457" }}>{this.state.timeEnd}</span></p>
+                <p> <span className="fw-bold fs-5">Trạng thái: </span><span style={{ color: this.state.colorStatus }}>{this.state.textStatus}</span></p>
                 <div className="d-flex justify-content-center">
                     <button className="btn w-50" style={{ background: this.state.colorButton, color: this.state.colorTextButton }} onClick={this.nextStatus.bind(this)}>{this.state.texButton}</button>
                 </div>

@@ -17,6 +17,7 @@ export class App extends Component {
     this.inputTimeEnd = this.inputTimeEnd.bind(this);
     this.addWork = this.addWork.bind(this);
     this.removeWork = this.removeWork.bind(this);
+    this.updateWork = this.updateWork.bind(this);
   }
   
 
@@ -39,16 +40,21 @@ export class App extends Component {
 
   removeWork(id){
     let newWorkList = this.state.workList.filter(work => work.id !== id);
-    this.setState({ workList: newWorkList });
+    this.setState({ workList: [...newWorkList] });
+    console.log(newWorkList);
   }
 
   updateWork(obj){
-    const newWorkList = this.state.workList.map(val => {
+    let newWorkList = []
+    for (const val of this.state.workList) {
       if(val.id === obj.id){
-        
+        console.log({...val, ...obj});
+        newWorkList.push({...val, ...obj})
+      } else {
+        newWorkList.push(val)
       }
-    })
-
+    }
+    this.setState({workList: [...newWorkList]})
   }
 
   addWork() {
@@ -58,7 +64,8 @@ export class App extends Component {
       timeStart: this.state.workTimeStart,
       timeEnd: this.state.workTimeEnd,
       status: 0,
-      removeWork: this.removeWork
+      removeWork: this.removeWork,
+      updateWork: this.updateWork
     };
     this.setState({
       workList: [...this.state.workList, newWork],
@@ -67,14 +74,6 @@ export class App extends Component {
     });
     App.id++;
   }
-
-  // static getDerivedStateFromProps(nextProps, preState) {
-  //   console.log(nextProps.list, preState.list);
-  //   if (nextProps.list && preState.list && nextProps.list.length !== preState.list.length) {
-  //     return { list: nextProps.list }
-  //   }
-  //   return null
-  // }
 
   render() {
     const {workList} = this.state
@@ -114,7 +113,7 @@ export class App extends Component {
         </div>
         <div className='work-list'>
           {workList.map((work) => (
-            <Work value={work} />
+            <Work value={work} key={work.id} />
           ))}
         </div>
       </div>

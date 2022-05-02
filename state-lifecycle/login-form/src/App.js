@@ -19,7 +19,7 @@ export class App extends Component {
       }
       let res = await axios.post('/login', bodyRequest)
       alert("Xin Chào " + res.data.name)
-      window.location.href = 'http://ngt-web.herokuapp.com/'
+      window.location.href = res.data.url
     } else {
       alert('Tên hoặc mật khẩu không chính xác')
     }
