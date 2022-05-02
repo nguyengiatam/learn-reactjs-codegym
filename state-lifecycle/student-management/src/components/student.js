@@ -88,7 +88,7 @@ export class Student extends Component {
                 <td className="w-25">{this.state.name}</td>
                 <td className="w-25">{this.state.phone}</td>
                 <td className="w-25">{this.state.email}</td>
-                <td className="w-25"><button className="btn btn-info" onClick={this.changeInfo}>{this.state.button}</button><button className="btn btn-danger" onClick={this.remove}>Delete</button></td>
+                <td className="w-25"><button className="btn btn-info" onClick={this.changeInfo}>{this.state.button}</button><button className="btn btn-outline-danger" onClick={this.remove}>Delete</button></td>
             </tr>
         )
     }
